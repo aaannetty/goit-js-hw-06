@@ -1,6 +1,6 @@
-const form = document.querySelector(".login-form");
+const form = document.querySelector('.login-form');
 
-form.addEventListener("submit", onFormSubmit);
+form.addEventListener('submit', onFormSubmit);
 
 function onFormSubmit(event) {
   event.preventDefault();
@@ -8,19 +8,21 @@ function onFormSubmit(event) {
   const emailInput = form.elements.email;
   const passwordInput = form.elements.password;
 
-  if (emailInput.value === "" || passwordInput.value === "") {
-    alert("All fields must be filled in!");
+  if (emailInput.value === '' || passwordInput.value === '') {
+    alert('All fields must be filled in!');
     return;
   }
 
   const formElements = event.currentTarget.elements;
-  const formData = new FormData(event.currentTarget);
 
-  console.log(formData);
+  console.log({
+    email: emailInput.value,
+    password: passwordInput.value,
+  });
 
   formData.forEach((value, name) => {
-    console.log("onFormSubmit -> name", name);
-    console.log("onFormSubmit -> value", value);
+    console.log('onFormSubmit -> name', name);
+    console.log('onFormSubmit -> value', value);
   });
 
   form.reset();
